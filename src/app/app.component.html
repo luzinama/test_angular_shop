@@ -29,48 +29,6 @@
                     </span>
                 </span>
             </li>
-            <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-            </li>
-            <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-            </li>
-            <li>
-                  <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
-                        <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
-                        </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
-                </span>
-            </li>
             <li class="divider"></li>
             <li><a class="text-center" href="">View Cart</a></li>
           </ul>
@@ -97,7 +55,7 @@
                 <div class="card-body">
                   <div class="form-check" *ngFor="let brand of brands">
                   <label class="mb-0">
-                    <input (change)="$event.target.checked ? addFilter(brand.id) : removeFilter(brand.id)"
+                    <input (change)="$event.target.checked ? addBrandFilter(brand.id) : removeBrandFilter(brand.id)"
                            class="form-check-input"
                            type="checkbox"
                            name="brands"
@@ -117,12 +75,30 @@
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
                 <div class="card-body">
-                  <label class="mb-0" *ngFor="let brand of brands">
-                    <input (change)="$event.target.checked ? addFilter(brand.id) : removeFilter(brand.id)"
+                  <div class="form-check">
+                    <label class="mb-0">
+                      <input (change)="$event.target.checked ? addPriceFilter(0, 10) : removePriceFilter(0, 10)"
+                           class="form-check-input"
                            type="checkbox"
-                           name="brands"
-                           value="{{brand.id}}"/> {{ brand.name }}
-                  </label>
+                           name="prices"/> 0 - 10
+                    </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="mb-0">
+                        <input (change)="$event.target.checked ? addPriceFilter(10, 20) : removePriceFilter(10, 20)"
+                               class="form-check-input"
+                               type="checkbox"
+                               name="prices"/> 10 - 20
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="mb-0">
+                        <input (change)="$event.target.checked ? addPriceFilter(20, 9999) : removePriceFilter(20, 9999)"
+                               class="form-check-input"
+                               type="checkbox"
+                               name="prices"/> > 20
+                      </label>
+                    </div>
                 </div>
               </div>
             </div>

@@ -15,6 +15,7 @@ export class AppComponent {
     brands = BRANDS;
     selected_goods = GOODS;
     filters: any[] = [];
+    price_filters: any[] = [];
     cart: any[] = [];
     pageOfItems: Array<any>;
 
@@ -22,13 +23,26 @@ export class AppComponent {
         this.pageOfItems = pageOfItems;
     }
 
-    addFilter(brand_id) {
+    addToCart(product_id) {
+        this.cart.push(product_id);
+    }
+
+    addBrandFilter(brand_id) {
         this.filters.push(brand_id);
         this.filterData();
     }
 
-    removeFilter(brand_id: number) {
+    removeBrandFilter(brand_id: number) {
         this.filters = this.filters.filter(filter => filter !== brand_id);
+        this.filterData();
+    }
+
+    addPriceFilter(min, max) {
+        this.price_filters.push([min, max]);
+        this.filterData();
+    }
+    removePriceFilter(min, max) {
+        this.price_filters = this.price_filters.filter(filter => filter[0] !== min && filter[1] !== max);
         this.filterData();
     }
 
@@ -38,8 +52,15 @@ export class AppComponent {
         } else {
             this.selected_goods = this.goods;
         }
-    }
-    addToCart(product_id) {
-        this.cart.push(product_id);
+
+        if (this.price_filters.length) {
+            let min = this.price_filters[0][0];
+            let max = this.price_filters[0][1];
+            this.price_filters.forEach(function (el) {
+                if (el[0] < min ) { min = el[0]; }
+                if (el[1] > max ) { max = el[1]; }
+            });
+            this.selected_goods = this.selected_goods.filter(s => s.price > min && s.price <= max);
+        }
     }
 }
