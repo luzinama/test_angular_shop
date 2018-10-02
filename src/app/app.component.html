@@ -1,0 +1,155 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Ingridients</li>
+    </ol>
+  </nav>
+  <div class="row">
+    <div class="col-sm-10">
+      <h2>Ingredients</h2>
+      <div class="results">{{ selected_goods.length }} results found</div>
+    </div>
+    <div class="col-sm-2 text-right">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" [ngClass]="{ 'dropdown-toggle': cart.length > 0 }" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span *ngIf="cart.length > 0"> - {{ cart.length }} Items<span class="caret"></span></span></a>
+          <ul class="dropdown-menu dropdown-cart" role="menu"  *ngIf="cart.length > 0">
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <span class="item-info">
+                            <span>Item name</span>
+                            <span>23$</span>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right">x</button>
+                    </span>
+                </span>
+            </li>
+            <li class="divider"></li>
+            <li><a class="text-center" href="">View Cart</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <nav class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <div class="nav flex-column">
+          <h5>Filter by</h5>
+          <div class="" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h6 class="mb-0">
+                  <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Brand
+                  </a>
+                </h6>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+                <div class="card-body">
+                  <div class="form-check" *ngFor="let brand of brands">
+                  <label class="mb-0">
+                    <input (change)="$event.target.checked ? addFilter(brand.id) : removeFilter(brand.id)"
+                           class="form-check-input"
+                           type="checkbox"
+                           name="brands"
+                           value="{{brand.id}}"/> {{ brand.name }}
+                  </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h6 class="mb-0">
+                  <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Price
+                  </a>
+                </h6>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                <div class="card-body">
+                  <label class="mb-0" *ngFor="let brand of brands">
+                    <input (change)="$event.target.checked ? addFilter(brand.id) : removeFilter(brand.id)"
+                           type="checkbox"
+                           name="brands"
+                           value="{{brand.id}}"/> {{ brand.name }}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let good of pageOfItems ">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" data-src="{{ good.img }}" alt="Thumbnail [100%x225]" style="width:auto;max-height:155px;display: block;" src="{{ good.img }}" data-holder-rendered="true">
+            <div class="card-body">
+              <p class="card-text">{{ good.name }}</p>
+              <p class="card-price text-primary">${{ good.price }}</p>
+              <button type="button" class="btn btn-primary" (click)="addToCart(good.id)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav aria-label="Page navigation">
+        <jw-pagination [items]="selected_goods" (changePage)="onChangePage($event)" [pageSize]="8"></jw-pagination>
+      </nav>
+    </main>
+  </div>
+</div>
+<script>
+</script>
+
