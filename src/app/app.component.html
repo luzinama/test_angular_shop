@@ -16,14 +16,14 @@
           <a href="#" [ngClass]="{ 'dropdown-toggle': cart.length > 0 }" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span *ngIf="cart.length > 0"> - {{ cart.length }} Items<span class="caret"></span></span></a>
           <ul class="dropdown-menu dropdown-cart" role="menu"  *ngIf="cart.length > 0">
             <li *ngFor="let product of cart">
-                  <span class="item">
-                        <img src="{{ product.img }}" width="auto" height="50" alt="" />
-                        <span class="item-info">
-                            <span>{{ product.name }}</span>
-                            <span>{{ product.price }}$ x {{ product.count }}</span>
-                          <button class="btn btn-xs btn-danger pull-right">x</button>
-                        </span>
+              <span class="item">
+                <img src="{{ product.img }}" width="auto" height="50" alt="" />
+                <span class="item-info">
+                  <span>{{ product.name }}</span>
+                  <span>{{ product.price }}$ x {{ product.count }}</span>
+                  <button class="btn btn-xs btn-danger pull-right" (click)="removeFromCart(product)">x</button>
                 </span>
+              </span>
             </li>
             <li class="divider"></li>
             <li><span class="item"><a class="text-center" href="#">View Cart</a></span></li>

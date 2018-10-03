@@ -54,6 +54,21 @@ export class AppComponent implements OnInit {
         this.cookieService.set('cart', JSON.stringify(this.cart), expireDate);
     }
 
+    removeFromCart(product) {
+        const expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() + 1);
+        if (product.count > 1) {
+            product.count -= 1;
+            this.cookieService.set('cart', JSON.stringify(this.cart), expireDate);
+            this.cart = JSON.parse(this.cookieService.get('cart'));
+        } else if (product.count === 1) {
+            const i = this.cart.indexOf(product);
+            this.cart.splice(i, 1);
+            this.cookieService.set('cart', JSON.stringify(this.cart), expireDate);
+            this.cart = JSON.parse(this.cookieService.get('cart'));
+        }
+    }
+
     addBrandFilter(brand_id) {
         this.filters.push(brand_id);
         this.filterData();
