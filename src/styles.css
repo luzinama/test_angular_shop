@@ -26,22 +26,39 @@ ul.dropdown-cart li .item:after{
 ul.dropdown-cart li .item-left{
     float:left;
 }
-ul.dropdown-cart li .item-left img,
-ul.dropdown-cart li .item-left span.item-info{
+ul.dropdown-cart li .item img{
     float:left;
 }
-ul.dropdown-cart li .item-left span.item-info{
-    margin-left:10px;
+ul.dropdown-cart li .item span.item-info{
+    margin-left:60px;
+    float: none;
+    display: block;
+    padding-right: 20px;
+    position: relative;
 }
-ul.dropdown-cart li .item-left span.item-info span{
+ul.dropdown-cart li .item span.item-info span{
     display:block;
 }
 ul.dropdown-cart li .item-right{
     float:right;
 }
-ul.dropdown-cart li .item-right button{
-    margin-top:14px;
+ul.dropdown-cart li button{
+    padding: 5px;
+    line-height: 1em;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
+
+/** Filters */
+.filters .card-header {
+    cursor: pointer;
+}
+.filters .card-header .collapsed i.fa-angle-down:before {
+    content: '\f105';
+}
+
+/** Pagination */
 .pagination {
     display: inline-block;
     padding-left: 0;

@@ -8,29 +8,25 @@
   <div class="row">
     <div class="col-sm-10">
       <h2>Ingredients</h2>
-      <div class="results">{{ selected_goods.length }} results found</div>
+      <div class="results">{{ selected_products.length }} results found</div>
     </div>
     <div class="col-sm-2 text-right">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" [ngClass]="{ 'dropdown-toggle': cart.length > 0 }" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span *ngIf="cart.length > 0"> - {{ cart.length }} Items<span class="caret"></span></span></a>
           <ul class="dropdown-menu dropdown-cart" role="menu"  *ngIf="cart.length > 0">
-            <li>
+            <li *ngFor="let product of cart">
                   <span class="item">
-                    <span class="item-left">
-                        <img src="http://lorempixel.com/50/50/" alt="" />
+                        <img src="{{ product.img }}" width="auto" height="50" alt="" />
                         <span class="item-info">
-                            <span>Item name</span>
-                            <span>23$</span>
+                            <span>{{ product.name }}</span>
+                            <span>{{ product.price }}$ x {{ product.count }}</span>
+                          <button class="btn btn-xs btn-danger pull-right">x</button>
                         </span>
-                    </span>
-                    <span class="item-right">
-                        <button class="btn btn-xs btn-danger pull-right">x</button>
-                    </span>
                 </span>
             </li>
             <li class="divider"></li>
-            <li><a class="text-center" href="">View Cart</a></li>
+            <li><span class="item"><a class="text-center" href="#">View Cart</a></span></li>
           </ul>
         </li>
       </ul>
@@ -41,13 +37,12 @@
       <div class="sidebar-sticky">
         <div class="nav flex-column">
           <h5>Filter by</h5>
-          <div class="" id="accordionExample">
+          <div class="filters">
             <div class="card">
               <div class="card-header" id="headingOne">
-                <h6 class="mb-0">
-                  <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h6 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Brand
-                  </a>
+                  <i class="fas fa-angle-down float-right"></i>
                 </h6>
               </div>
 
@@ -67,10 +62,9 @@
             </div>
             <div class="card">
               <div class="card-header" id="headingTwo">
-                <h6 class="mb-0">
-                  <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     Price
-                  </a>
+                  <i class="fas fa-angle-down float-right"></i>
                 </h6>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
@@ -109,19 +103,19 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let good of pageOfItems ">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" data-src="{{ good.img }}" alt="Thumbnail [100%x225]" style="width:auto;max-height:155px;display: block;" src="{{ good.img }}" data-holder-rendered="true">
+        <div class="col-sm-12 col-md-6 col-lg-3" *ngFor="let product of pageOfItems ">
+          <div class="card mb-4 shadow-sm text-center">
+            <img class="card-img-top" data-src="{{ product.img }}" alt="Thumbnail [100%x225]" style="width:auto;max-height:155px;display: block;" src="{{ product.img }}" data-holder-rendered="true">
             <div class="card-body">
-              <p class="card-text">{{ good.name }}</p>
-              <p class="card-price text-primary">${{ good.price }}</p>
-              <button type="button" class="btn btn-primary" (click)="addToCart(good.id)">Add to cart</button>
+              <p class="card-text">{{ product.name }}</p>
+              <p class="card-price text-primary">${{ product.price }}</p>
+              <button type="button" class="btn btn-primary" (click)="addToCart(product)">Add to cart</button>
             </div>
           </div>
         </div>
       </div>
       <nav aria-label="Page navigation">
-        <jw-pagination [items]="selected_goods" (changePage)="onChangePage($event)" [pageSize]="8"></jw-pagination>
+        <jw-pagination [items]="selected_products" (changePage)="onChangePage($event)" [pageSize]="8"></jw-pagination>
       </nav>
     </main>
   </div>

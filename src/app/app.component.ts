@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { CookieService } from 'ngx-cookie-service';
 
 import {BRANDS, GOODS} from './mock-goods';
 
@@ -9,22 +10,48 @@ import {BRANDS, GOODS} from './mock-goods';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = 'test-angular-shop';
-    goods = GOODS;
+    products = GOODS;
     brands = BRANDS;
-    selected_goods = GOODS;
+    selected_products = GOODS;
     filters: any[] = [];
     price_filters: any[] = [];
     cart: any[] = [];
     pageOfItems: Array<any>;
 
+    constructor( private cookieService: CookieService ) { }
+
+    ngOnInit(): void {
+        if (this.cookieService.check('cart')) {
+            this.cart = JSON.parse(this.cookieService.get('cart'));
+        }
+    }
+
     onChangePage(pageOfItems: Array<any>) {
         this.pageOfItems = pageOfItems;
     }
 
-    addToCart(product_id) {
-        this.cart.push(product_id);
+    addToCart(product) {
+        if (this.cart.length === 0) {
+            product.count = 1;
+            this.cart.push(product);
+        } else {
+            let repeat = false;
+            for (let i = 0; i < this.cart.length; i++) {
+                if (this.cart[i].id === product.id) {
+                    repeat = true;
+                    this.cart[i].count += 1;
+                }
+            }
+            if (!repeat) {
+                product.count = 1;
+                this.cart.push(product);
+            }
+        }
+        const expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() + 1);
+        this.cookieService.set('cart', JSON.stringify(this.cart), expireDate);
     }
 
     addBrandFilter(brand_id) {
@@ -48,19 +75,19 @@ export class AppComponent {
 
     private filterData() {
         if (this.filters.length) {
-            this.selected_goods = this.goods.filter( s => this.filters.indexOf(s.brand) > -1);
+            this.selected_products = this.products.filter( s => this.filters.indexOf(s.brand) > -1);
         } else {
-            this.selected_goods = this.goods;
+            this.selected_products = this.products;
         }
 
         if (this.price_filters.length) {
             let min = this.price_filters[0][0];
             let max = this.price_filters[0][1];
-            this.price_filters.forEach(function (el) {
-                if (el[0] < min ) { min = el[0]; }
-                if (el[1] > max ) { max = el[1]; }
-            });
-            this.selected_goods = this.selected_goods.filter(s => s.price > min && s.price <= max);
+            for (let i = 1; i < this.price_filters.length; i++) {
+                if (this.price_filters[i][0] < min) { min = this.price_filters[i][0]; }
+                if (this.price_filters[i][1] > max) { max = this.price_filters[i][1]; }
+            }
+            this.selected_products = this.selected_products.filter(s => s.price > min && s.price <= max);
         }
     }
 }
