@@ -1,6 +1,9 @@
 .results {
     margin-bottom: 20px;
 }
+main .card-img-top {
+    padding-top: 10px;
+}
 main .card-text {
     height: 3em;
 }
