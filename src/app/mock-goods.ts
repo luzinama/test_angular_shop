@@ -1,4 +1,4 @@
-export const GOODS: any[] = [
+export const PRODUCTS: any[] = [
     {
         id: 1,
         name: 'Andreas Sunflower Seed Oil',
