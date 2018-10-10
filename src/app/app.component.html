@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-sm-10">
       <h2>Ingredients</h2>
-      <div class="results">{{ products !== undefined ? products.length : 'No' }} results found</div>
+      <div class="results">{{ total_count }} results found</div>
     </div>
     <div class="col-sm-2 text-right">
       <ul class="nav navbar-nav navbar-right">
@@ -71,10 +71,10 @@
                 <div class="card-body">
                   <div class="form-check">
                     <label class="mb-0">
-                      <!--<input (change)="$event.target.checked ? addPriceFilter(0, 10) : removePriceFilter(0, 10)"-->
-                           <!--class="form-check-input"-->
-                           <!--type="checkbox"-->
-                           <!--name="prices"/> 0 - 10-->
+                      <input (change)="$event.target.checked ? addPriceFilter(0, 10) : removePriceFilter(0, 10)"
+                           class="form-check-input"
+                           type="checkbox"
+                           name="prices"/> 0 - 10
                     </label>
                     </div>
                     <div class="form-check">

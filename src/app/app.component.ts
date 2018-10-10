@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
-import {BRANDS, PRODUCTS} from './mock-goods';
+import {BRANDS} from './mock-goods';
 import { ProductService } from './product.service';
 
 @Component({
@@ -11,13 +11,15 @@ import { ProductService } from './product.service';
 })
 export class AppComponent implements OnInit {
     title = 'test-angular-shop';
-    // products = PRODUCTS;
     products: any[];
-    brands = BRANDS;
+    brands: any[] = BRANDS;
     filters: any[] = [];
     price_filters: any[] = [];
+    min_price = 0; max_price = 9999;
     cart: any[] = [];
     pageOfItems: Array<any>;
+    page = 1;
+    total_count;
 
     constructor( private cookieService: CookieService, private productService: ProductService ) {}
 
@@ -34,14 +36,9 @@ export class AppComponent implements OnInit {
     }
 
     getProducts(): void {
-        this.productService.getProducts()
-            .subscribe(products => this.products = products);
+        this.productService.getProducts(this.page, this.filters, [this.min_price, this.max_price])
+            .subscribe(resp => {this.products = resp.body; this.total_count = resp.headers.get('x-total-count'); });
     }
-    getProductsByBrand(brands): void {
-        this.productService.getProductsByBrand(brands)
-            .subscribe(products => this.products = products);
-    }
-
     addToCart(product) {
         if (this.cart.length === 0) {
             product.count = 1;
@@ -99,22 +96,14 @@ export class AppComponent implements OnInit {
     }
 
     private filterData() {
-        this.getProductsByBrand(this.filters.join('|'));
-
-        // if (this.filters.length) {
-        //     this.selected_products = this.products.filter( s => this.filters.indexOf(s.brand) > -1);
-        // } else {
-        //     this.selected_products = this.products;
-        // }
-        //
-        // if (this.price_filters.length) {
-        //     let min = this.price_filters[0][0];
-        //     let max = this.price_filters[0][1];
-        //     for (let i = 1; i < this.price_filters.length; i++) {
-        //         if (this.price_filters[i][0] < min) { min = this.price_filters[i][0]; }
-        //         if (this.price_filters[i][1] > max) { max = this.price_filters[i][1]; }
-        //     }
-        //     // this.selected_products = this.selected_products.filter(s => s.price > min && s.price <= max);
-        // }
+        if (this.price_filters.length) {
+            this.min_price = this.price_filters[0][0];
+            this.max_price = this.price_filters[0][1];
+            for (let i = 1; i < this.price_filters.length; i++) {
+                if (this.price_filters[i][0] < this.min_price) { this.min_price = this.price_filters[i][0]; }
+                if (this.price_filters[i][1] > this.max_price) { this.max_price = this.price_filters[i][1]; }
+            }
+        }
+        this.getProducts();
     }
 }
