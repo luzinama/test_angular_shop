@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
     cart: any[] = [];
     page = 1;
     total_count;
-    page = 1;
 
     constructor( private cookieService: CookieService, private productService: ProductService ) {}
 
