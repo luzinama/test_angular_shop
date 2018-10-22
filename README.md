@@ -2,6 +2,7 @@
 
 # TestAngularShop
 Пример страницы каталога для интернет магазина. 
+
 Sample catalog page for online shop.
 #### Задачи:
 - рендер каталога продуктов, отсортированных по цене
@@ -22,3 +23,7 @@ Sample catalog page for online shop.
 Запустите дев-сервер командой `npm run dev-server`. Перейдите на страницу `http://localhost:4200/`.
 
 Run `npm run dev-server` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Screenshots
+[#1](https://luzina.pro/wp-content/uploads/2018/10/Screenshot_20181022_115414.png)
+[#2](https://luzina.pro/wp-content/uploads/2018/10/Screenshot_20181022_120247.png)
