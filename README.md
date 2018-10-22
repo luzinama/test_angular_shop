@@ -1,6 +1,6 @@
 *в процессе / in progress
 
-# SampleAngularShop
+# SampleAngularShop (Angular 6)
 Пример страницы каталога для интернет магазина. 
 
 Sample catalog page for online shop.
