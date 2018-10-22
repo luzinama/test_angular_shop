@@ -130,5 +130,7 @@ export const PRODUCTS: any[] = [
 export const BRANDS: any[] = [
     { id: 1, name: 'Sewanti'},
     { id: 2, name: 'Dandy'},
-    { id: 3, name: 'Lacanto'},
+    { id: 3, name: 'Lakanto'},
+    { id: 4, name: 'Sunwarrior'},
+    { id: 5, name: 'Andreas Seed Oils'},
 ];

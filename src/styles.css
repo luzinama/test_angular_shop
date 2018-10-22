@@ -6,6 +6,7 @@ main .card-img-top {
 }
 main .card-text {
     height: 3em;
+    overflow: hidden;
 }
 ul.dropdown-cart{
     min-width:250px;
