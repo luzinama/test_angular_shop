@@ -13,7 +13,7 @@
     <div class="col-sm-2 text-right">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" [ngClass]="{ 'dropdown-toggle': cart.length > 0 }" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span *ngIf="cart.length > 0"> - {{ cart.length }} Items<span class="caret"></span></span></a>
+          <a href="#" [ngClass]="{ 'dropdown-toggle': cart.length > 0 }" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span *ngIf="cart.length > 0"> - {{ cart.length }} Item<span *ngIf="cart.length > 1">s</span><span class="caret"></span></span></a>
           <ul class="dropdown-menu dropdown-cart" role="menu"  *ngIf="cart.length > 0">
             <li *ngFor="let product of cart">
               <span class="item">
