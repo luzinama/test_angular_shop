@@ -1,13 +1,21 @@
-*в процессе
+*в процессе / in progress
 
 # TestAngularShop
 Пример страницы каталога для интернет магазина. 
-# Задачи:
+Sample catalog page for online shop.
+#### Задачи:
 - рендер каталога продуктов, отсортированных по цене
 - эмуляция работы с реальным API (request - response, постраничная загрузка данных)
 - фильтрация продуктов по бренду,
 - фильтрация продуктов по цене
 - добавление товара в корзину
+
+####Tasks:
+- rendering of a catalog of products sorted by price
+- emulation of working with real API (request - response, paginated data loading)
+- filtering products by brand,
+- filtering products by price
+- adding products to cart
 
 ## Development server
 
