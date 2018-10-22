@@ -116,7 +116,7 @@
         </div>
       </div>
       <nav aria-label="Page navigation">
-        <!--<jw-pagination [items]="selected_products" (changePage)="onChangePage($event)" [pageSize]="8"></jw-pagination>-->
+        <ngb-pagination [collectionSize]="total_count" [(page)]="page" [maxSize]="5" [pageSize]="8" [boundaryLinks]="true" (pageChange)="changePage($event)" ></ngb-pagination>
       </nav>
     </main>
   </div>

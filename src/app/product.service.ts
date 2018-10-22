@@ -12,7 +12,7 @@ export class ProductService {
   private productsUrl = API_URL + '/products';
 
   constructor( private http: HttpClient ) { }
-  getProducts (page, brands, price): Observable<HttpResponse> {
+  getProducts (page, brands, price): Observable<any> {
     let url = `${this.productsUrl}/?_page=` + page + `&_limit=8&_sort=price`;
     if (brands.length) {
       brands.forEach(function(brand) { url = url + '&brand=' + brand; });

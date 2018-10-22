@@ -17,22 +17,22 @@ export class AppComponent implements OnInit {
     price_filters: any[] = [];
     min_price = 0; max_price = 9999;
     cart: any[] = [];
-    pageOfItems: Array<any>;
     page = 1;
     total_count;
+    page = 1;
 
     constructor( private cookieService: CookieService, private productService: ProductService ) {}
 
     ngOnInit(): void {
         this.getProducts();
-
         if (this.cookieService.check('cart')) {
             this.cart = JSON.parse(this.cookieService.get('cart'));
         }
     }
 
-    onChangePage(pageOfItems: Array<any>) {
-        this.pageOfItems = pageOfItems;
+    changePage(page: number) {
+        this.page = page;
+        this.getProducts();
     }
 
     getProducts(): void {
