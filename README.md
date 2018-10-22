@@ -1,6 +1,6 @@
 *в процессе / in progress
 
-# TestAngularShop
+# SampleAngularShop
 Пример страницы каталога для интернет магазина. 
 
 Sample catalog page for online shop.
@@ -18,12 +18,12 @@ Sample catalog page for online shop.
 - filtering products by price
 - adding products to cart
 
+#### Screenshots
+[#1](https://luzina.pro/wp-content/uploads/2018/10/Screenshot_20181022_115414.png)
+[#2](https://luzina.pro/wp-content/uploads/2018/10/Screenshot_20181022_120247.png)
+
 ## Development server
 
 Запустите дев-сервер командой `npm run dev-server`. Перейдите на страницу `http://localhost:4200/`.
 
 Run `npm run dev-server` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Screenshots
-[#1](https://luzina.pro/wp-content/uploads/2018/10/Screenshot_20181022_115414.png)
-[#2](https://luzina.pro/wp-content/uploads/2018/10/Screenshot_20181022_120247.png)
