@@ -1,0 +1,144 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Sunflower Seed Oil",
+      "price": 18.25,
+      "brand": 5,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/12/200ml-bottle-sunflower-seed-oil-e1447868520642.png"
+    },
+    {
+      "id": 2,
+      "name": "Dandy Blend",
+      "price": 14.39,
+      "brand": 2,
+      "img": "https://rawelements.ca/wp-content/uploads/2015/08/Package_DandyBlend_100Servings.png"
+    },
+    {
+      "id": 3,
+      "name": "Lakanto Classic",
+      "price": 8.99,
+      "brand": 3,
+      "img": "https://rawelements.ca/wp-content/uploads/2015/10/Package_Lakanto_Classic_90g.png"
+    },
+    {
+      "id": 4,
+      "name": "Nori Sheets",
+      "price": 18.79,
+      "brand": 2,
+      "img": "https://rawelements.ca/wp-content/uploads/2017/06/Nori-Sheets.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Organic Arjuna Powder",
+      "price": 18.57,
+      "brand": 1,
+      "img": "https://rawelements.ca/wp-content/uploads/2017/05/arjuna_1024x1024.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Organic Punarnava Powder",
+      "price": 23.33,
+      "brand": 1,
+      "img": "https://rawelements.ca/wp-content/uploads/2018/04/punarnava_1024x1024@2x.png"
+    },
+    {
+      "id": 7,
+      "name": "Lakanto Maple Syrup",
+      "price": 15.86,
+      "brand": 3,
+      "img": "https://rawelements.ca/wp-content/uploads/2017/01/MapleSyrup_Front_1024x1024@2x-231x300.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Lakanto Powdered Monkfruit Sweetener",
+      "price": 25.79,
+      "brand": 3,
+      "img": "https://rawelements.ca/wp-content/uploads/2017/08/LakantoPowderedSweetener.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Lakanto Liquid Sweetener",
+      "price": 22.29,
+      "brand": 3,
+      "img": "https://rawelements.ca/wp-content/uploads/2017/08/Lakanto_Sweeter.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Sol Good Blueberry Blast Protein Bar",
+      "price": 4.99,
+      "brand": 4,
+      "img": "https://rawelements.ca/wp-content/uploads/2018/08/sol-good-blueberry-396x396.png"
+    },
+    {
+      "id": 11,
+      "name": "Classic Plus Vanilla",
+      "price": 37.25,
+      "brand": 4,
+      "img": "https://rawelements.ca/wp-content/uploads/2015/11/SW_VanillaClassicPLUS_750g-e1535567606162.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Sol Good Coconut Cashew Protein Bar",
+      "price": 4.99,
+      "brand": 4,
+      "img": "https://rawelements.ca/wp-content/uploads/2018/08/sol-good-coconut-396x396.png"
+    },
+    {
+      "id": 13,
+      "name": "Warrior Blend Berry Protein",
+      "price": 37.25,
+      "brand": 4,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/12/Can_WB_3_Berry-750g_Front1.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Holy Basil Plus – Ayurvedic Herbal Immune Booster",
+      "price": 15.68,
+      "brand": 1,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/09/Holy_Basil_Plus_large_98e8929c-04a1-40cc-b0d4-4feddeee2194_large.jpeg"
+    },
+    {
+      "id": 15,
+      "name": "Pumpkin Seed Oil",
+      "price": 45.25,
+      "brand": 5,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/03/imgres.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Black Sesame Seed Oil",
+      "price": 36.50,
+      "brand": 5,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/03/200ml-bottle-black-sesame-seed-oil-300x300.png"
+    },
+    {
+      "id": 17,
+      "name": "Coriander Seed Oil",
+      "price": 56.95,
+      "brand": 5,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/03/CorianderSeedOil.png"
+    },
+    {
+      "id": 18,
+      "name": "Flax Seed Oil",
+      "price": 23.33,
+      "brand": 5,
+      "img": "https://rawelements.ca/wp-content/uploads/2016/03/FlaxseedOil.png"
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "name": "Sewanti"
+    },
+    {
+      "id": 2,
+      "name": "Dandy"
+    },
+    {
+      "id": 3,
+      "name": "Lakanto"
+    }
+  ]
+}
