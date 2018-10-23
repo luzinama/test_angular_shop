@@ -5,11 +5,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
-    AppComponent, JwPaginationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, NgbPaginationModule
