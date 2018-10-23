@@ -11,7 +11,7 @@
     "watch-json": "json-server --watch mocks/data.json",
     "start-proxy": "ng serve --proxy-config proxy.conf.json",
     "dev-server": "concurrently \"npm:watch-json\" \"npm:start-proxy\"",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot --target=production"
   },
   "private": true,
   "dependencies": {
